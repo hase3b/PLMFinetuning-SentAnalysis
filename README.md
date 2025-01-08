@@ -8,10 +8,11 @@ This project investigates the effectiveness of parameter-efficient fine-tuning t
 2. Fine-Tuned PLMs: PLMs such as DistilBERT, RoBERTa, ALBERT, and GPT2 fine-tuned with LoRA to optimize resource usage while maintaining high performance.
 
 ## **Results Summary**
-Baseline Accuracy: 0.89 (Distilbert-base-uncased-finetuned-sst-2-English).
-Best Classical ML Model: Logistic Regression with 0.89 accuracy.
-Best Fine-Tuned PLM: RoBERTa surpassing 0.95 accuracy and F1-score, outperforming all other models.
-LoRA fine-tuning allowed training <1% of PLM weights while achieving exceptional performance.
+* Baseline Accuracy: 0.89 (Distilbert-base-uncased-finetuned-sst-2-English).
+* Best Classical ML Model: Logistic Regression with 0.89 accuracy.
+* Best Fine-Tuned PLM: RoBERTa surpassing 0.95 accuracy and F1-score, outperforming all other models.
+* LoRA fine-tuning allowed training <1% of PLM weights while achieving exceptional performance.
+
 For more details, refer to the main report titled "Text_A3_Report_Annayah_AbdulHaseeb_Sawera.pdf".
 
 ## **Repo Structure**
