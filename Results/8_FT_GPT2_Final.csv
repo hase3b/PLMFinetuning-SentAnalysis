@@ -1,0 +1,2 @@
+Model,Batch Size,Epochs,Learning Rate,Rank,Alpha,LoRA Dropout,Target Matrices,Accuracy,Precision,Recall,F1-Score
+GPT2,16,5,0.0001,8,16,0.1,"['attn.c_attn', 'attn.c_proj']",0.91375,0.9137664670471327,0.91375,0.9137375956023259

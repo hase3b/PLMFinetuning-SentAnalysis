@@ -1,0 +1,9 @@
+Model,Batch Size,Epochs,Learning Rate,Rank,Alpha,LoRA Dropout,Target Matrices,Accuracy,Precision,Recall,F1-Score
+RoBERTa,8,3,3e-05,8,16,0.1,"['attention.self.query', 'attention.self.key', 'attention.self.value']",0.8745,0.8746919734425938,0.8745,0.8744115340309243
+RoBERTa,8,3,0.0001,8,16,0.1,"['attention.self.query', 'attention.self.key', 'attention.self.value']",0.893,0.8936685185185186,0.893,0.8928592657544361
+RoBERTa,8,5,3e-05,8,16,0.1,"['attention.self.query', 'attention.self.key', 'attention.self.value']",0.879,0.8792575699748103,0.879,0.8789029573934838
+RoBERTa,8,5,0.0001,8,16,0.1,"['attention.self.query', 'attention.self.key', 'attention.self.value']",0.8885,0.8901050979845176,0.8885,0.888235255377043
+RoBERTa,16,3,3e-05,8,16,0.1,"['attention.self.query', 'attention.self.key', 'attention.self.value']",0.8765,0.8768157507895089,0.8765,0.8763883996329264
+RoBERTa,16,3,0.0001,8,16,0.1,"['attention.self.query', 'attention.self.key', 'attention.self.value']",0.893,0.8936685185185186,0.893,0.8928592657544361
+RoBERTa,16,5,3e-05,8,16,0.1,"['attention.self.query', 'attention.self.key', 'attention.self.value']",0.879,0.8792575699748103,0.879,0.8789029573934838
+RoBERTa,16,5,0.0001,8,16,0.1,"['attention.self.query', 'attention.self.key', 'attention.self.value']",0.8885,0.8901050979845176,0.8885,0.888235255377043

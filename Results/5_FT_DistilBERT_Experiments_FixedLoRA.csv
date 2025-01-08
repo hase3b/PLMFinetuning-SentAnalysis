@@ -1,0 +1,9 @@
+Model,Batch Size,Epochs,Learning Rate,Rank,Alpha,LoRA Dropout,Target Matrices,Accuracy,Precision,Recall,F1-Score
+DistilBERT,16,3,3e-05,8,16,0.1,"['attention.q_lin', 'attention.k_lin', 'attention.v_lin']",0.874,0.8742753036437246,0.874,0.8740318948723875
+DistilBERT,16,3,0.0001,8,16,0.1,"['attention.q_lin', 'attention.k_lin', 'attention.v_lin']",0.892,0.8920089211352424,0.892,0.8920035678854272
+DistilBERT,16,5,3e-05,8,16,0.1,"['attention.q_lin', 'attention.k_lin', 'attention.v_lin']",0.886,0.886077404585041,0.886,0.8860165439134312
+DistilBERT,16,5,0.0001,8,16,0.1,"['attention.q_lin', 'attention.k_lin', 'attention.v_lin']",0.8965,0.8965092863047671,0.8965,0.8964774794873701
+DistilBERT,32,3,3e-05,8,16,0.1,"['attention.q_lin', 'attention.k_lin', 'attention.v_lin']",0.836,0.837726760985771,0.836,0.8355118870937253
+DistilBERT,32,3,0.0001,8,16,0.1,"['attention.q_lin', 'attention.k_lin', 'attention.v_lin']",0.878,0.8796107688797627,0.878,0.8780146402342438
+DistilBERT,32,5,3e-05,8,16,0.1,"['attention.q_lin', 'attention.k_lin', 'attention.v_lin']",0.872,0.87219891492222,0.872,0.8720288180112571
+DistilBERT,32,5,0.0001,8,16,0.1,"['attention.q_lin', 'attention.k_lin', 'attention.v_lin']",0.8925,0.8925877439165318,0.8925,0.8925168643230463
