@@ -1,8 +1,8 @@
 # PLMFinetuning-SentAnalysis
-This repository contains all the code, results, and documentation for our CSE674: Text Analytics course assignment 3. The course is taught by Dr Sajjad Haider at the Institute of Business Administration Karachi. The objective was to explore and compare classical machine learning methods with fine-tuned pre-trained language models (PLMs) using Low-Rank Adaptation (LoRA) for sentiment analysis on the IMDb dataset. This project is a collaborative effort of Abdul Haseeb, Annayah Usman, and Sawera Hanif.
+This repository contains all the code, results, and documentation for our CSE674: Text Analytics course assignment 3. The course is taught by Dr Sajjad Haider at the Institute of Business Administration Karachi. The objective was to explore and compare classical machine learning methods with fine-tuned pre-trained language models (PLMs) using Low-Rank Adaptation (LoRA) for sentiment analysis on the IMDb dataset. Both approaches are compared against baseline of already fine-tuned DistilBERT on the SST-2 dataset. This project is a collaborative effort of Abdul Haseeb, Annayah Usman, and Sawera Hanif.
 
 ## **Overview**
-This project investigates the effectiveness of parameter-efficient fine-tuning techniques using LoRA compared to classical machine learning approaches for sentiment classification as well as a baseline fine-tuned PLM. The analysis involves:
+This project investigates the effectiveness of parameter-efficient fine-tuning techniques using LoRA compared to classical machine learning approaches for sentiment classification against a baseline. The analysis involves:
 
 1. Classical ML Models: Models like Logistic Regression, Naive Bayes, and k-NN trained on TF-IDF and Word2Vec embeddings.
 2. Fine-Tuned PLMs: PLMs such as DistilBERT, RoBERTa, ALBERT, and GPT2 fine-tuned with LoRA to optimize resource usage while maintaining high performance.
@@ -37,17 +37,17 @@ For more details, refer to the main report titled "Text_A3_Report_Annayah_AbdulH
 
 ## **Key Insights**
 * Classical ML Models:
- * Logistic Regression performed on par with the baseline PLM at 0.89 accuracy.
- * k-NN showed significant improvement with Word2Vec embeddings, reaching 0.78 accuracy.
+    * Logistic Regression performed on par with the baseline PLM at 0.89 accuracy.
+    * k-NN showed significant improvement with Word2Vec embeddings, reaching 0.78 accuracy.
 
 * Fine-Tuning Experiments:
- * Phase 1: Training hyperparameters (e.g., batch size, learning rate, epochs) significantly influenced performance. Higher learning rates (e.g., 0.0001) and batch sizes (8, 16) yielded optimal results.
- * Phase 2: Targeting fewer matrices (e.g., Query matrix in attention layers) often achieved comparable accuracy to targeting all matrices, demonstrating LoRA's efficiency.
+    * In Phase 1 it was found that  training hyperparameters (e.g., batch size, learning rate, epochs) significantly influenced performance. Higher learning rates (e.g., 0.0001) and batch sizes (8, 16) yielded optimal results.
+    * In Phase 2 it was found that targeting fewer matrices (e.g., Query matrix in attention layers) often achieved comparable accuracy to targeting all matrices, demonstrating LoRA's efficiency.
 
 * Final Results:
- * All fine-tuned PLMs surpassed the baseline and classical ML models.
- * RoBERTa consistently achieved the highest performance across metrics.
- * Fine-tuning GPT2 on just 5% of the dataset yielded surprising accuracy (0.91), indicating potential with larger datasets.
+    * All fine-tuned PLMs surpassed the baseline and classical ML models.
+    * RoBERTa consistently achieved the highest performance across metrics.
+    * Fine-tuning GPT2 on just 5% of the dataset yielded surprising accuracy (0.91), indicating potential with larger datasets.
 
 ## **Future Work**
 * Ensemble Models: Combine the fine-tuned models pushed to HuggingFace into an ensemble for improved classification.
