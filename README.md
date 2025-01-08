@@ -1,5 +1,5 @@
 # PLMFinetuning-SentAnalysis
-This repository contains all the code, results, and documentation for our CSE674: Text Analytics course assignment 3. The objective was to explore and compare classical machine learning methods with fine-tuned pre-trained language models (PLMs) using Low-Rank Adaptation (LoRA) for sentiment analysis on the IMDb dataset. This project is a collaborative effort of Abdul Haseeb, Annayah Usman, and Sawera Hanif.
+This repository contains all the code, results, and documentation for our CSE674: Text Analytics course assignment 3. The course is taught by Dr Sajjad Haider at the Institute of Business Administration Karachi. The objective was to explore and compare classical machine learning methods with fine-tuned pre-trained language models (PLMs) using Low-Rank Adaptation (LoRA) for sentiment analysis on the IMDb dataset. This project is a collaborative effort of Abdul Haseeb, Annayah Usman, and Sawera Hanif.
 
 ## **Overview**
 This project investigates the effectiveness of parameter-efficient fine-tuning techniques using LoRA compared to classical machine learning approaches for sentiment classification as well as a baseline fine-tuned PLM. The analysis involves:
