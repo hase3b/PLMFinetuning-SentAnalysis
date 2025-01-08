@@ -28,7 +28,7 @@ For more details, refer to the main report titled "Text_A3_Report_Annayah_AbdulH
 ├── Scripts - Experimentation PLMs  
 │   ├── Finetuning Hyperparameter Experimentation notebooks for ALBERT, DistilBERT, GPT2, and RoBERTa.  
 ├── Scripts - Final Finetuned PLMs  
-│   └── Final fine-tuning notebook for the optimal configurations.  
+│   └── Final fine-tuning notebooks for the optimal configurations for each model.  
 ├── Assignment3.pdf  
 │   └── Contains the project task details.  
 └── Text_A3_Report_Annayah_AbdulHaseeb_Sawera.pdf  
