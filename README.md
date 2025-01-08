@@ -10,7 +10,7 @@ This project investigates the effectiveness of parameter-efficient fine-tuning t
 ## **Results Summary**
 Baseline Accuracy: 0.89 (Distilbert-base-uncased-finetuned-sst-2-English).
 Best Classical ML Model: Logistic Regression with 0.89 accuracy.
-Best Fine-Tuned PLM: RoBERTa surpassing 0.91 accuracy and F1-score, outperforming all other models.
+Best Fine-Tuned PLM: RoBERTa surpassing 0.95 accuracy and F1-score, outperforming all other models.
 LoRA fine-tuning allowed training <1% of PLM weights while achieving exceptional performance.
 For more details, refer to the main report titled "Text_A3_Report_Annayah_AbdulHaseeb_Sawera.pdf".
 
@@ -58,5 +58,5 @@ For more details, refer to the main report titled "Text_A3_Report_Annayah_AbdulH
 We would like to acknowledge the following tools, models, and resources that contributed to this project:
 * Tools: PyTorch, HuggingFace Transformers, Scikit-learn, Matplotlib, Seaborn, Pandas, Numpy.
 * Models: DistilBERT, RoBERTa, ALBERT, GPT2 (pre-trained models fine-tuned with LoRA).
-* Data Source: IMDb Dataset for Sentiment Analysis (sourced via HuggingFace Datasets).
+* Data Source: IMDb Dataset for Sentiment Analysis.
 * Instructor: Dr Sajjad Haider (Professor IBA Karachi)
