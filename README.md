@@ -1,67 +1,62 @@
 # PLMFinetuning-SentAnalysis
-This repository contains the implementation of a Retrieval-Augmented Generation (RAG) system designed for judicial use cases, specifically for the Supreme Court of Pakistan (SCP). The project focuses on leveraging Large Language Models (LLMs) and advanced retrieval techniques to analyze and generate detailed, relevant, and accurate responses to legal queries based on the SCP Judgements.
+This repository contains all the code, results, and documentation for our CSE674: Text Analytics term project. The objective was to explore and compare classical machine learning methods with fine-tuned pre-trained language models (PLMs) using Low-Rank Adaptation (LoRA) for sentiment analysis on the IMDb dataset. This project is a collaborative effort of Abdul Haseeb, Annayah Usman, and Sawera Hanif.
 
-## **Project Overview**
-The primary goal of this project is to develop a robust, efficient, and reliable RAG pipeline capable of handling legal texts, retrieving relevant sections, and generating comprehensive summaries and answers to user queries. The system integrates advanced techniques for metadata handling, retrieval, and generation enhancement through context handling and summarization to provide high-quality outputs tailored to the judicial domain. This project is a collaborative effort of Abdul Haseeb, Annayah Usman, and Sawera Hanif.
+## **Overview**
+This project investigates the effectiveness of parameter-efficient fine-tuning techniques using LoRA compared to classical machine learning approaches for sentiment classification as well as a baseline fine-tuned PLM. The analysis involves:
 
-## **Key Features**
-* LLMs Used:
-  * LLaMa 3.1. 8B Instruct
-  * Mistral 7B Instruct
-* Embedding Model Used:
-  * Stella 1.5B (Dunzhang/Stella_en_1.5B_v5)
-* Retrieval Techniques:
-  * Similarity Search
-  * BM25
-  * Ensemble Retriever (Best Performer)
-* Chunking Strategy & Metadata Handling:
-  * Metadata embedded in the split chunks for improved precision and relevance during retrieval.
-* Summarization Strategies:
-  * Without Query Bias: Generate summaries without including the user query to avoid biases in the generated answers.
-* Long Context Handling:
-  * Implemented Long Context Reordering to improve context flow before summarization and query answering.
+1. Classical ML Models: Models like Logistic Regression, Naive Bayes, and k-NN trained on TF-IDF and Word2Vec embeddings.
+2. Fine-Tuned PLMs: PLMs such as DistilBERT, RoBERTa, ALBERT, and GPT2 fine-tuned with LoRA to optimize resource usage while maintaining high performance.
 
-## **Workflow**
-* Corpus Generation & Preprocessing
-  * Step 1: Web scrape SCP judgments and associated metadata (titles, case numbers, author judges, etc.). For further details refer to the DocSrapper.ipynb in the repo.
-  * Step 2: Convert judgment PDFs to text (incld. OCR) and link them with metadata. For further details refer to the PDF2TXT&CSV.ipynb in the repo.
-  * Step 3: Preprocess text by removing redundant elements, normalizing whitespace, and cleaning content. For further details refer to the TextPreprocessing.ipynb in the repo.
-* Chunking Strategy & Metadata Handling
-  * Split documents into overlapping chunks of 1,800 characters for optimal embedding and retrieval through RecursiveCharacterTextSplitter from LangChain.
-  * Embed each chunk with its associated metadata string.
-* Embedding & Retrieval
-  * Use dunzhang/stella_en_1.5B_v5 embedding model for high-dimensional (1024D) representations.
-  * Store document embeddings in Pinecone for vector-based retrieval.
-* Retrieval-Augmented Generation (RAG) Experimentation
-  * Experiment with different query types (generic, specific, completely generic) and retrieval strategies (ensemble, similarity search, BM25).
-  * Experiment with generation enhancement strategies like adding summary in the context and reordering of the context.
-  * Evaluate whether summary should have query bias or not.
-  * Evaluate whether long context reordering improves the query response.
-  * Compare the LLMs with different query types on the best generation and retrieval strategy.
-* Evaluation & Results
-  * For the best generation and retrieval strategy along with superior LLM, compare RAG outputs for multiple queries with different query types for different documents.
+## **Results Summary**
+Baseline Accuracy: 0.89 (Distilbert-base-uncased-finetuned-sst-2-English).
+Best Classical ML Model: Logistic Regression with 0.89 accuracy.
+Best Fine-Tuned PLM: RoBERTa surpassing 0.91 accuracy and F1-score, outperforming all other models.
+LoRA fine-tuning allowed training <1% of PLM weights while achieving exceptional performance.
+For more details, refer to the main report titled "Text_A3_Report_Annayah_AbdulHaseeb_Sawera.pdf".
 
-Note: For further details on parts 2-5 refer to SCPRAG.ipynb in the repo.
+## **Repo Structure**
+├── EDA  
+│   └── Contains exploratory data analysis (EDA) plots and notebook.  
+├── Misc Scripts  
+│   └── Notebooks that were not part of the main study but provide additional insights.  
+├── Results  
+│   └── CSV files with detailed experimentation results and final fine-tuning outcomes.  
+├── Scripts - Classical ML Models + Baseline PLM  
+│   ├── ClassicalMLModels_TFIDF_Embeddings.ipynb  
+│   ├── ClassicalMLModels_TFIDF_Hyperparams.ipynb  
+│   └── FT_Baseline.ipynb  
+├── Scripts - Experimentation PLMs  
+│   ├── Finetuning Hyperparameter Experimentation notebooks for ALBERT, DistilBERT, GPT2, and RoBERTa.  
+├── Scripts - Final Finetuned PLMs  
+│   └── Final fine-tuning notebook for the optimal configurations.  
+├── Assignment3.pdf  
+│   └── Contains the project task details.  
+└── Text_A3_Report_Annayah_AbdulHaseeb_Sawera.pdf  
+    └── The comprehensive project report.  
 
-## **Repository Contents**
-| Folder/File                                          | Description                                                                                                                            |
-| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| /Corpus/ | Contains scrapped judgements in PDF & Text format along with its metadata as a CSV file. Also, contains merged content and metadata CSV file as well as final cleaned corpus CSV. |
-| /Corpus Generation & Preprocessing/DocScrapper.ipynb | Scrapes SCP judgments and associated metadata from the official website.     |
-| /Corpus Generation & Preprocessing/PDF2TXT&CSV.ipynb | Converts judgment PDFs to text, performs OCR, and links metadata.     |
-| /Corpus Generation & Preprocessing/TextPreprocessing.ipynb | Preprocesses text to clean, normalize, and structure legal documents.     |
-| /SCPRAG.ipynb | Implements the RAG pipeline, chunking, embedding, and evaluation.     |
-| /Report.PDF    | Detailed report explaining the workflow, experiments, and results.    |
+## **Key Insights**
+* Classical ML Models:
+ * Logistic Regression performed on par with the baseline PLM at 0.89 accuracy.
+ * k-NN showed significant improvement with Word2Vec embeddings, reaching 0.78 accuracy.
+
+* Fine-Tuning Experiments:
+ * Phase 1: Training hyperparameters (e.g., batch size, learning rate, epochs) significantly influenced performance. Higher learning rates (e.g., 0.0001) and batch sizes (8, 16) yielded optimal results.
+ * Phase 2: Targeting fewer matrices (e.g., Query matrix in attention layers) often achieved comparable accuracy to targeting all matrices, demonstrating LoRA's efficiency.
+
+* Final Results:
+ * All fine-tuned PLMs surpassed the baseline and classical ML models.
+ * RoBERTa consistently achieved the highest performance across metrics.
+ * Fine-tuning GPT2 on just 5% of the dataset yielded surprising accuracy (0.91), indicating potential with larger datasets.
 
 ## **Future Work**
-* Metadata Embedding Strategy: Embed metadata separately for improved matching precision.
-* Self-Querying Mechanism: Automate metadata tagging for enhanced search flexibility.
-* Higher-Dimension Embeddings: Experiment with models offering richer representations for complex legal texts.
-
-Note: More on this is present in the Report.PDF.
+* Ensemble Models: Combine the fine-tuned models pushed to HuggingFace into an ensemble for improved classification.
+* Hyperparameter Tuning: Develop a systematic methodology for better guidance on optimal configurations.
+* Adaptive Rank Selection: Optimize rank tradeoff for performance and computational efficiency in LoRA.
+* Extended Training: Train models for more epochs to observe potential improvements.
 
 ## **Acknowledgments**
-* Tools: LangChain, HuggingFace, Pinecone, Selenium, PyMuPDF, PDF2image, PyTesseract, Beautifulsoup4, Pandas, Numpy, RegEx
-* Models: LLaMa 3.1. 8B Instruct, Mistral 7B Instruct, Stella 1.5B V5, LegalBERT
-* Data Source: Supreme Court of Pakistan Website.
+We would like to acknowledge the following tools, models, and resources that contributed to this project:
+* Tools: PyTorch, HuggingFace Transformers, Scikit-learn, Matplotlib, Seaborn, Pandas, Numpy.
+* Models: DistilBERT, RoBERTa, ALBERT, GPT2 (pre-trained models fine-tuned with LoRA).
+* Data Source: IMDb Dataset for Sentiment Analysis (sourced via HuggingFace Datasets).
 * Instructor: Dr Sajjad Haider (Professor IBA Karachi)
